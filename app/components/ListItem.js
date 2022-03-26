@@ -4,22 +4,31 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import AppText from "./AppText";
 import colors from "../config/colors";
+import Icon from "./Icon";
 
 const ListItem = ({ title, subTitle, image, ImageContainer, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-    <View style={styles.container}>
-      {ImageContainer}
-      {image && <Image source={image} style={styles.image} />}
-      <View style={styles.descriptionContainer}>
-        <AppText style={styles.title}>{title}</AppText>
-        {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
-      </View>
-      <MaterialCommunityIcons
-        name='chevron-right'
-        size={20}
-        color={colors.medium}
-      />
+      <View style={styles.container}>
+        {ImageContainer}
+        {!image && (
+          <Icon
+            name='circle'
+            backgroundColor='yellowgreen'
+            size={50}
+            color='white'
+          />
+        )}
+        {image && <Image source={image} style={styles.image} />}
+        <View style={styles.descriptionContainer}>
+          <AppText style={styles.title}>{title}</AppText>
+          {subTitle && <AppText style={styles.subTitle}>{subTitle}</AppText>}
+        </View>
+        <MaterialCommunityIcons
+          name='chevron-right'
+          size={20}
+          color={colors.medium}
+        />
       </View>
     </TouchableOpacity>
   );

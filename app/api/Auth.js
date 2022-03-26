@@ -1,7 +1,7 @@
 import { create } from "apisauce";
 import axios from "axios";
 
-axios.defaults.baseURL = "http://192.168.100.16:5000";
+axios.defaults.baseURL = "https://sheltered-basin-07926.herokuapp.com/";
 
 // Login
  const login = (email, pass) => {

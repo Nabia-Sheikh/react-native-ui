@@ -9,13 +9,11 @@ const initialMessages = [
     id: 1,
     title: "T1",
     description: "D1",
-    image: require("../assets/mosh.jpg"),
   },
   {
     id: 2,
     title: "T2",
     description: "D2",
-    image: require("../assets/mosh.jpg"),
   },
 ];
 
@@ -51,7 +49,6 @@ const MessagesScreen = () => {
               id: 2,
               title: "T2",
               description: "D2",
-              image: require("../assets/mosh.jpg"),
             },
           ]);
         }}
@@ -62,4 +59,3 @@ const MessagesScreen = () => {
 
 export default MessagesScreen;
 
-const styles = StyleSheet.create({});

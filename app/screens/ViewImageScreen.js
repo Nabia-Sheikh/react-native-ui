@@ -17,11 +17,7 @@ function ViewImageScreen() {
         />
       </View>
 
-      <Image
-        resizeMode='contain'
-        style={styles.image}
-        source={require("../assets/chair.jpg")}
-      />
+      <Image resizeMode='contain' style={styles.image} />
     </View>
   );
 }

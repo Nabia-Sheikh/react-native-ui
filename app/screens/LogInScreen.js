@@ -62,7 +62,7 @@ const LogInScreen = () => {
             icon={"lock"}
             placeholder='Password'
           />
-          <SubmitButton title={"Log In"} onPress={handleSubmit} />
+          <SubmitButton title={"Log Inn"} onPress={handleSubmit} />
         </View>
       </AppForm>
     </View>

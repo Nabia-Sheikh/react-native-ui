@@ -11,7 +11,7 @@ const ListItem = ({ title, subTitle, image, ImageContainer, onPress }) => {
     <TouchableOpacity onPress={onPress}>
       <View style={styles.container}>
         {ImageContainer}
-        {!image && (
+        {(!image && !ImageContainer) && (
           <Icon
             name='circle'
             backgroundColor='yellowgreen'

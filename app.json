@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "Hackathon",
+    "name": "Nabia Sheikh",
     "slug": "hackathon-nabia-sheikh",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -23,7 +23,9 @@
       "adaptiveIcon": {
         "foregroundImage": "./app/assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.forfirebasekyz.hackathonnabiasheikh",
+      "versionCode": 1
     },
     "web": {
       "favicon": "./app/assets/favicon.png"

@@ -6,7 +6,6 @@ import {
   TouchableOpacity,
 } from "react-native";
 import React, { useContext } from "react";
-import { Formik } from "formik";
 import * as Yup from "yup";
 import ErrorMessage from "../components/ErrorMessage";
 import AppFormField from "../components/AppFormField";

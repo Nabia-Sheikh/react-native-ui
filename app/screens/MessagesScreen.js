@@ -7,13 +7,13 @@ import Icon from "../components/Icon";
 const initialMessages = [
   {
     id: 1,
-    title: "T1",
-    description: "D1",
+    title: "Rimsha",
+    description: "Hello!",
   },
   {
     id: 2,
-    title: "T2",
-    description: "D2",
+    title: "Anoosha",
+    description: "Hey!",
   },
 ];
 

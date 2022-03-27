@@ -8,17 +8,6 @@ import AuthContext from "../auth/context";
 import ActivityIndicator from "../components/ActivityIndicator";
 import AppText from "../components/AppText";
 
-const initialMessages = [
-  {
-    id: 1,
-    carName: "Honda",
-    carPrice: 50000,
-    packageName: "Basic",
-    packagePrice: 8000,
-    packageCategory: "Coupe",
-  },
-];
-
 const TotalBookings = () => {
   const [bookings, setBookings] = useState();
   const [isLoading, setIsLoading] = useState(false);

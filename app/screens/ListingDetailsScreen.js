@@ -1,22 +1,26 @@
 import React from "react";
-import { StyleSheet, View, Image } from "react-native";
+import { StyleSheet, ScrollView, View, Image } from "react-native";
 import AppButton from "../components/AppButton";
 import AppText from "../components/AppText";
-import Card from "../components/Card";
-import ListItem from "../components/ListItem";
 import colors from "../config/colors";
 
+import PackagesCard from "../components/PackagesCard";
+import AuthContext from "../auth/context";
 const ListingDetailsScreen = ({ route, navigation }) => {
   const listing = route.params;
-
+  const { selectedPkg } = React.useContext(AuthContext);
   const handleBooking = () => {
-    navigation.navigate("Payment", {
-      listing,
-    });
+    if (selectedPkg) {
+      navigation.navigate("Payment", {
+        listing,
+      });
+    } else {
+      alert("Please select package");
+    }
   };
 
   return (
-    <View>
+    <ScrollView>
       <Image
         style={styles.image}
         source={{
@@ -27,12 +31,18 @@ const ListingDetailsScreen = ({ route, navigation }) => {
         <AppText style={styles.title}>{listing.name}</AppText>
         <AppText style={styles.price}>Rs. {listing.price}/=</AppText>
       </View>
-      <AppText style={styles.descriptionHeading} >Description</AppText>
-      <AppText style={styles.description}>
-        {listing.description}
-      </AppText>
-     <AppButton text="Book Now" color="primary" onPress={handleBooking} />
-    </View>
+      <View>
+        <PackagesCard category={listing.category} />
+      </View>
+      <AppText style={styles.descriptionHeading}>Description</AppText>
+      <AppText style={styles.description}>{listing.description}</AppText>
+      <AppButton
+        style={{ marginBottom: 30 }}
+        text='Book Now'
+        color='primary'
+        onPress={handleBooking}
+      />
+    </ScrollView>
   );
 };
 

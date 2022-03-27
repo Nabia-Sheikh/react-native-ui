@@ -1,12 +1,13 @@
 import React from "react";
 import { View } from "react-native";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { MaterialCommunityIcons, AntDesign } from "@expo/vector-icons";
 
 function Icon({
   name,
   size = 40,
   backgroundColor = "#000",
   iconColor = "#fff",
+  ant,
 }) {
   return (
     <View
@@ -20,7 +21,15 @@ function Icon({
         margin: 2,
       }}
     >
-      <MaterialCommunityIcons name={name} color={iconColor} size={size * 0.5} />
+      {ant ? (
+        <AntDesign name='user' size={24} color='white' />
+      ) : (
+        <MaterialCommunityIcons
+          name={name}
+          color={iconColor}
+          size={size * 0.5}
+        />
+      )}
     </View>
   );
 }

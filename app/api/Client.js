@@ -1,7 +1,8 @@
 import { create } from "apisauce";
+import { URL } from "./url";
 
 const apiClient = create({
-  baseURL: "https://sheltered-basin-07926.herokuapp.com/",
+  baseURL: URL
 });
 
 export default apiClient;

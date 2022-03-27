@@ -32,7 +32,7 @@ const styles = StyleSheet.create({
     width: "100%",
   },
   logo: {
-    width: 200,
+    width: 220,
     height: 100,
   },
   logoContainer: {

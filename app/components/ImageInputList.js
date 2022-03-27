@@ -3,7 +3,7 @@ import React, { useRef } from "react";
 import ImageInput from "./ImageInput";
 
 const ImageInputList = ({ imageUris = [], onRemoveImage, onAddImage }) => {
-  const scrollView = useRef();
+  const scrollView = useRef(); 
   return (
     <View>
       <ScrollView

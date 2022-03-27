@@ -1,11 +1,13 @@
-import { StyleSheet, Image, View } from "react-native";
-import React, {useContext} from "react";
+import {
+  StyleSheet,
+  Image,
+  View,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
+import React, { useContext } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
-import jwtDecode from "jwt-decode";
-import AppTextInput from "../components/AppTextInput";
-import AppButton from "../components/AppButton";
-import AppText from "../components/AppText";
 import ErrorMessage from "../components/ErrorMessage";
 import AppFormField from "../components/AppFormField";
 import SubmitButton from "../components/SubmitButton";
@@ -13,38 +15,47 @@ import AppForm from "../components/AppForm";
 import AuthApi from "../api/Auth";
 import AuthContext from "../auth/context";
 import AuthStorage from "../auth/storage";
+import AppText from "../components/AppText";
 
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
 });
 
-const LogInScreen = () => {
+const LogInScreen = ({ navigation }) => {
   const [loginFailed, setLoginFailed] = React.useState();
- const authContext =  useContext(AuthContext)
+  const [isLoading, setIsLoading] = React.useState(false);
+  const authContext = useContext(AuthContext);
 
   const handleSubmit = async (values) => {
+    setIsLoading(true);
     try {
       const result = await AuthApi.login(values.email, values.password);
-      if(!result.data.user) return setLoginFailed(true)
+      if (!result.data.user) return setLoginFailed(true);
       await AuthStorage.storeUser(result.data.user);
       authContext.setUser(result.data.user);
+      setIsLoading(false);
     } catch (error) {
       setLoginFailed(true);
-      console.log(error)
+      setIsLoading(false);
+      console.log(error);
     }
-  }
+  };
 
   return (
-    <View>
+    <ScrollView style={{ flex: 1 }}>
       <Image style={styles.logo} source={require("../assets/logo-red.png")} />
+
       <AppForm
         initialValues={{ email: "", password: "" }}
         validationSchema={validationSchema}
         onSubmit={handleSubmit}
       >
         <View style={styles.container}>
-          <ErrorMessage error={"Invalid Email and/or Password."} visible={loginFailed} />
+          <ErrorMessage
+            error={"Invalid Email and/or Password."}
+            visible={loginFailed}
+          />
           <AppFormField
             name='email'
             autoCapitalize='none'
@@ -62,10 +73,28 @@ const LogInScreen = () => {
             icon={"lock"}
             placeholder='Password'
           />
-          <SubmitButton title={"Log Inn"} onPress={handleSubmit} />
+          <SubmitButton
+            disabled={isLoading}
+            title={isLoading ? "Loading..." : "Log In"}
+            onPress={handleSubmit}
+          />
         </View>
       </AppForm>
-    </View>
+      <TouchableOpacity onPress={() => navigation.navigate("Register")}>
+        <AppText style={styles.text}>
+          Don't have an account? <AppText style={styles.link}>Sign Up</AppText>
+        </AppText>
+      </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.link}
+        onPress={() => navigation.navigate("Forgot-password")}
+      >
+        <AppText style={styles.text}>
+          Forgot your password?{" "}
+          <AppText style={styles.link}>Reset Password</AppText>
+        </AppText>
+      </TouchableOpacity>
+    </ScrollView>
   );
 };
 
@@ -81,5 +110,14 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     marginTop: 50,
     marginBottom: 20,
+  },
+  text: {
+    marginTop: 20,
+    alignSelf: "center",
+  },
+  link: {
+    color: "blue",
+    fontSize: 18,
+    fontWeight: "600",
   },
 });

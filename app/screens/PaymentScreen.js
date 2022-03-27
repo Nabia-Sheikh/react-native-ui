@@ -6,20 +6,29 @@ import TransactionDone from "./TransactionDone";
 import AuthContext from "../auth/context";
 import TransactionApi from "../api/Auth";
 
-const PaymentScreen = ({route, navigation}) => {
+const PaymentScreen = ({ route, navigation }) => {
   const [checked, setChecked] = React.useState("PayPal");
-    const [show, setShow] = React.useState(false);
-    const { user } = React.useContext(AuthContext);
-    const { listing } = route.params;
+  const [show, setShow] = React.useState(false);
+  const { selectedPkg, user } = React.useContext(AuthContext);
+  const { listing, pkg } = route.params;
+  console.log("From 14", selectedPkg);
 
-    const handlePay = async () => {
+  const handlePay = async () => {
     try {
-         await TransactionApi.createTransaction(user.email, listing._id, listing.name, listing.price);
-        setShow(true);
-        navigation.navigate("Feed")
+      await TransactionApi.createTransaction(
+        user.email,
+        listing._id,
+        listing.name,
+        listing.price,
+        selectedPkg.category,
+        selectedPkg.name,
+        selectedPkg.price
+      );
+      setShow(true);
+      navigation.navigate("Listings");
     } catch (error) {
-        console.log(error);
-        alert("Something went wrong");
+      console.log(error);
+      alert("Something went wrong");
     }
   };
 
@@ -34,7 +43,7 @@ const PaymentScreen = ({route, navigation}) => {
         <RadioButton.Item label='COD' value='COD' />
       </RadioButton.Group>
       <AppButton text='Pay Now' color='primary' onPress={handlePay} />
-      {show && <TransactionDone onDone={() => setShow(false)} visible={show} />}
+      {show && <TransactionDone message={"Succesfully Done"}  onDone={() => setShow(false)} visible={show} />}
     </View>
   );
 };

@@ -64,6 +64,7 @@ const TabsNavigator = () => (
 
 export default function App() {
   const [user, setUser] = useState();
+  const [selectedPkg, setSelectedPkg] = useState();
   const [isReady, setLoadingComplete] = useState(false);
 
   const restoreUser = async () => {
@@ -87,7 +88,7 @@ export default function App() {
   }
 
   return (
-    <AuthContext.Provider value={{ user, setUser }}>
+    <AuthContext.Provider value={{ user, setUser, selectedPkg, setSelectedPkg }}>
       <NavigationContainer theme={myTheme}>
         <SafeAreaView style={styles.container}>
           {user ? <AppNavigator /> : <AuthNavigator />}

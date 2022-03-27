@@ -4,7 +4,7 @@ import LottieView from "lottie-react-native";
 import AppText from "../components/AppText";
 
 
-function TransactionDone({ onDone, visible = false }) {
+function TransactionDone({ message, onDone, visible = false }) {
   return (
     <Modal visible={visible}>
       <View style={styles.container}>
@@ -15,7 +15,7 @@ function TransactionDone({ onDone, visible = false }) {
             source={require("../assets/animations/done.json")}
             style={styles.animation}
               />
-              <AppText>Succesfully Booked!</AppText>
+              <AppText>{message}</AppText>
       </View>
     </Modal>
   );

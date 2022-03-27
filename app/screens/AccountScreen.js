@@ -1,5 +1,5 @@
 import { FlatList, StyleSheet, Text, View } from "react-native";
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import ListItem from "../components/ListItem";
 import ListItemSeparator from "../components/ItemSeparator";
 import Icon from "../components/Icon";
@@ -10,11 +10,12 @@ import authStorage from "../auth/storage";
 const menuItems = [
   {
     id: 1,
-    title: "My Listings",
+    title: "My Bookings",
     icon: {
       name: "format-list-bulleted",
       backgroundColor: colors.primary,
     },
+    targetScreen: "TotalBookings",
   },
   {
     id: 2,
@@ -33,14 +34,11 @@ const AccountScreen = ({ navigation }) => {
   const handleLogout = () => {
     setUser(null);
     authStorage.removeUser();
-  }
+  };
   return (
     <View>
       <View style={styles.container}>
-        <ListItem
-          title={user.name}
-          subTitle={user.email}
-        />
+        <ListItem title={user.name} subTitle={user.email} />
       </View>
       <View style={styles.container}>
         <FlatList

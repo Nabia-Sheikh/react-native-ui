@@ -9,7 +9,7 @@ const CategoryPickerItem = ({ item, onPress }) => {
       <View>
         <Icon
           name={item.icon}
-          size={80}
+          size={70}
           backgroundColor={item.backgroundColor}
         />
         <AppText style={styles.text}>{item.label}</AppText>
@@ -23,12 +23,12 @@ export default CategoryPickerItem;
 const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 18,
-    paddingVertical: 15,
+    paddingTop: 10,
     alignItems: "center",
     width: "33%",
   },
   text: {
-    marginTop: 5,
+    marginTop: 2,
     textAlign: "center",
   },
 });

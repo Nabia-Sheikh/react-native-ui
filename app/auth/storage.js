@@ -3,7 +3,6 @@ import * as storage from 'expo-secure-store';
 const storeUser = async (user) => {
     try {
         await storage.setItemAsync('user', JSON.stringify(user));
-        console.log("stored")
     } catch (error) {
         console.log(error)
     }

@@ -29,7 +29,6 @@ const TotalBookings = () => {
     setIsLoading(true);
     try {
       const response = await Packages.getMyTransactions(user.email);
-      console.log(response);
       setBookings(response.data);
       setIsLoading(false);
     } catch (error) {

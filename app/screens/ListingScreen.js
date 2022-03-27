@@ -34,10 +34,6 @@ const ListingScreen = ({ navigation }) => {
     setCarsData(listings);
   }, []);
 
-  React.useEffect(() => {
-    console.log("carsData", listings);
-  }, [listings]);
-
   return (
     <>
       {error && (

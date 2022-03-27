@@ -6,7 +6,6 @@ const getListings = () => apiClient.get(endpoint);
 
 const addListing = (listing) => {
   const data = new FormData();
-  console.log(listing);
   data.append("title", listing.title);
   data.append("price", listing.price);
   data.append("categoryId", listing.category.value);

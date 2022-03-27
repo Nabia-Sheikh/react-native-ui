@@ -71,7 +71,6 @@ export default function App() {
     try {
       const userData = await authStorage.getUser();
       setUser(JSON.parse(userData));
-      console.log("check user", userData);
     } catch (error) {
       console.log("Error restoring user");
     }

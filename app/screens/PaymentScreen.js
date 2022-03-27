@@ -10,8 +10,7 @@ const PaymentScreen = ({ route, navigation }) => {
   const [checked, setChecked] = React.useState("PayPal");
   const [show, setShow] = React.useState(false);
   const { selectedPkg, user } = React.useContext(AuthContext);
-  const { listing, pkg } = route.params;
-  console.log("From 14", selectedPkg);
+  const { listing } = route.params;
 
   const handlePay = async () => {
     try {

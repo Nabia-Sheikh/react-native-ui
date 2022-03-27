@@ -47,11 +47,6 @@ const ListingEditScreen = () => {
   useEffect(() => {
     getLocation();
   }, []);
-
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
-
   return (
     <>
       {show && (

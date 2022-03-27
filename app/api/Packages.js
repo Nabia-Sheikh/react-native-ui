@@ -4,7 +4,6 @@ import { URL } from "./url";
 
 // Get packages by category
 const getPackagesByCategory = (category) => {
-  console.log(category);
   return axios.get(`/packages`);
 };
 

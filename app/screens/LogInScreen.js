@@ -18,8 +18,6 @@ import AuthStorage from "../auth/storage";
 import AppText from "../components/AppText";
 import AppButton from "../components/AppButton";
 
-import * as Google from "expo-google-app-auth";
-
 const validationSchema = Yup.object().shape({
   email: Yup.string().required().email().label("Email"),
   password: Yup.string().required().min(4).label("Password"),
@@ -29,43 +27,6 @@ const LogInScreen = ({ navigation }) => {
   const [loginFailed, setLoginFailed] = React.useState();
   const [isLoading, setIsLoading] = React.useState(false);
   const authContext = useContext(AuthContext);
-
-  // const [request, response, promptAsync] = Google.useAuthRequest({
-  //   expoClientId:
-  //     "4233923839-l6eeeg48mvl7dp5r37b0l4dt240f80sr.apps.googleusercontent.com",
-  //   androidClientId:
-  //     "4233923839-fnn3snqitiacsl4cm9ns574t9rmm3fnb.apps.googleusercontent.com",
-  //   webClientId:
-  //     "4233923839-fs3evm0ljkq4ss5vg33j9uj1ka9jq2bk.apps.googleusercontent.com",
-  // });
-  // React.useEffect(() => {
-  //   if (response?.type === "success") {
-  //     const { authentication } = response;
-  //     console.log(authentication);
-  //   }
-  // }, [response]);
-
-  const googleSignin = async () => {
-    // const provider = new GoogleAuthProvider();
-    // try {
-    //   const result = await signInWithPopup(auth, provider);
-    //   console.log(result);
-    // } catch (error) {
-    //   console.log(error);
-    // }
-    const config = {
-      androidClientId:
-        "4233923839-fnn3snqitiacsl4cm9ns574t9rmm3fnb.apps.googleusercontent.com",
-      scopes: ["profile", "email"],
-    };
-
-    try {
-      const result = await Google.logInAsync(config);
-      console.log(result);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const handleSubmit = async (values) => {
     setIsLoading(true);

@@ -25,6 +25,7 @@
         "backgroundColor": "#FFFFFF",
         "backgroundImage": "./app/assets/icon.png"
       },
+      "googleServicesFile": "./android/app/google-services.json",
       "package": "com.forfirebasekyz.hackathonnabiasheikh",
       "versionCode": 1
     },

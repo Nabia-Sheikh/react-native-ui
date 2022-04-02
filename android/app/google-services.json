@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "276508149607",
+    "project_id": "jp-hackathon-native-4624f",
+    "storage_bucket": "jp-hackathon-native-4624f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:276508149607:android:93bdc7126fd9eaab92d1c2",
+        "android_client_info": {
+          "package_name": "com.forfirebasekyz.hackathonnabiasheikh"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "276508149607-oikm6fjvn69e7o7uk3v7d20kjcjq2s79.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.forfirebasekyz.hackathonnabiasheikh",
+            "certificate_hash": "7298f4abcd03dc4317b2dae1fa06cf7f919de6db"
+          }
+        },
+        {
+          "client_id": "276508149607-70vopc4g4goohq1lalasph6eq4ol39fd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCENr1-HcHBfSpQJCaYb_aqsbK8MXOzlSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "276508149607-70vopc4g4goohq1lalasph6eq4ol39fd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

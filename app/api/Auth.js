@@ -36,20 +36,40 @@ const createTransaction = (
 };
 
 // Create Feedback
-const addFeedback = (
+const addFeedback = (name, email, message) => {
+  return axios.post("/feedback", {
     name,
     email,
-    message) => {
-    return axios.post("/feedback", {
-        name,
-        email,
-        message,
-    });
+    message,
+  });
+};
+
+const requestResetPassword = (email) => {
+  return axios.post("/reset-password-request", {
+    email,
+  });
+};
+
+const verifyCode = (id, code) => {
+  return axios.post("/verify-code", {
+    id,
+    code,
+  });
+};
+
+const newPassword = (id, newPass) => {
+  return axios.post("/new-password", {
+    id,
+    newPass,
+  });
 };
 
 export default {
   login,
   register,
-    createTransaction,
-    addFeedback,
+  createTransaction,
+  addFeedback,
+  requestResetPassword,
+  verifyCode,
+  newPassword,
 };

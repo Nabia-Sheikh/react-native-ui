@@ -25,8 +25,6 @@ const ListingEditScreen = () => {
     try {
       await FeedbackApi.addFeedback(values.name, user.email, values.message);
       setShow(true);
-
-      navigation.navigate("Listings");
     } catch (error) {
       alert("Something went wrong");
       console.log(error);
@@ -47,12 +45,19 @@ const ListingEditScreen = () => {
   useEffect(() => {
     getLocation();
   }, []);
+
+  const handleDone = () => {
+    setTimeout(() => {
+      navigation.navigate("Listings");
+      setShow(false);
+    }, 3000);
+  };
   return (
     <>
       {show && (
         <TransactionDone
+          onDone={handleDone}
           message={"Thanks for your Feeback"}
-          onDone={() => setShow(false)}
           visible={show}
         />
       )}

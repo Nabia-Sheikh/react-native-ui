@@ -24,11 +24,17 @@ const PaymentScreen = ({ route, navigation }) => {
         selectedPkg.price
       );
       setShow(true);
-      navigation.navigate("Listings");
     } catch (error) {
       console.log(error);
       alert("Something went wrong");
     }
+  };
+
+  const handleDone = () => {
+    setTimeout(() => {
+      navigation.navigate("Listings");
+      setShow(false);
+    }, 2000);
   };
 
   return (
@@ -42,7 +48,13 @@ const PaymentScreen = ({ route, navigation }) => {
         <RadioButton.Item label='COD' value='COD' />
       </RadioButton.Group>
       <AppButton text='Pay Now' color='primary' onPress={handlePay} />
-      {show && <TransactionDone message={"Succesfully Done"}  onDone={() => setShow(false)} visible={show} />}
+      {show && (
+        <TransactionDone
+          message={"Succesfully Done"}
+          onDone={handleDone}
+          visible={show}
+        />
+      )}
     </View>
   );
 };

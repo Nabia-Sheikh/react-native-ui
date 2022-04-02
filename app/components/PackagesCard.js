@@ -12,7 +12,7 @@ const PackagesCard = ({ category }) => {
 
   const handlePackageSelect = (pkg) => {
     setSelectedPkg(pkg);
-    alert("Package Selected");
+    alert(pkg.name + " package Selected");
   };
 
   const getPackages = async () => {

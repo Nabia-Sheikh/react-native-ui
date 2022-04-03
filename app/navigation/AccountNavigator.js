@@ -12,7 +12,13 @@ const AccountNavigator = () => (
   <Stack.Navigator>
     <Stack.Screen name='Account' component={AccountScreen} />
     <Stack.Screen name='Messages' component={MessagesScreen} />
-    <Stack.Screen name='TotalBookings' component={TotalBookings} />
+    <Stack.Screen
+      options={{
+        headerTitle: "Total Bookings",
+      }}
+      name='TotalBookings'
+      component={TotalBookings}
+    />
   </Stack.Navigator>
 );
 

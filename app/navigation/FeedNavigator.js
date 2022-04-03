@@ -6,7 +6,6 @@ import ListingScreen from "../screens/ListingScreen";
 import ListingDetailsScreen from "../screens/ListingDetailsScreen";
 import PaymentScreen from "../screens/PaymentScreen";
 
-
 const Stack = createStackNavigator();
 
 const FeedNavigator = () => (
@@ -18,7 +17,13 @@ const FeedNavigator = () => (
       name='Listings'
       component={ListingScreen}
     />
-    <Stack.Screen name={routes.LISTING_DETAILS} component={ListingDetailsScreen} />
+    <Stack.Screen
+      options={{
+        headerTitle: "Listing Details",
+      }}
+      name={routes.LISTING_DETAILS}
+      component={ListingDetailsScreen}
+    />
     <Stack.Screen name={"Payment"} component={PaymentScreen} />
   </Stack.Navigator>
 );

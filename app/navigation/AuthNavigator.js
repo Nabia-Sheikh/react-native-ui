@@ -21,7 +21,19 @@ export const AuthNavigator = () => (
     <Stack.Screen name='Login' component={LogInScreen} />
     <Stack.Screen name='Register' component={RegisterScreen} />
     <Stack.Screen name='Forgot-password' component={ForgotPasswordScreen} />
-    <Stack.Screen name='ResetCode' component={ResetCode} />
-    <Stack.Screen name='NewPass' component={NewPassScreen} />
+    <Stack.Screen
+      options={{
+        headerTitle: "Reset Password",
+      }}
+      name='ResetCode'
+      component={ResetCode}
+    />
+    <Stack.Screen
+      options={{
+        headerShown: false,
+      }}
+      name='NewPass'
+      component={NewPassScreen}
+    />
   </Stack.Navigator>
 );

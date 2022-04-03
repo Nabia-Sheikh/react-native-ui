@@ -80,14 +80,6 @@ const LogInScreen = ({ navigation }) => {
           />
         </View>
       </AppForm>
-      {/* <AppButton
-        disabled={!request}
-        text='Login'
-        onPress={() => {
-          promptAsync();
-        }}
-      /> */}
-      <AppButton text='Sign In With Google' onPress={googleSignin} />
       <TouchableOpacity onPress={() => navigation.navigate("Register")}>
         <AppText style={styles.text}>
           Don't have an account? <AppText style={styles.link}>Sign Up</AppText>
